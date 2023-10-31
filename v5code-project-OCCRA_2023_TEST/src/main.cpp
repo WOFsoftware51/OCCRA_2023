@@ -19,6 +19,7 @@
 // ---- END VEXCODE CONFIGURED DEVICES ----
 
 #include "vex.h"
+#include <stdlib.h> 
 
 using namespace vex;
 
@@ -69,17 +70,26 @@ int main() {
 
     // leftSpeed = Controller1.Axis3.position();
     // rightSpeed = Controller1.Axis2.position();
+    if(labs(xSpeed) < 0.01)
+    {
      leftSpeed = xSpeed - rotation;
      rightSpeed = xSpeed + rotation;
-
-
-    float maxThing = fmax(fabs(leftSpeed), fabs(rightSpeed));
-    
-    if(maxThing>1)
-    {
-      leftSpeed /= maxThing;
-      rightSpeed /= maxThing;
     }
+    else
+    {
+      leftSpeed = xSpeed - (labs(xSpeed) * rotation*0.1);
+      rightSpeed = xSpeed + (labs(xSpeed) * rotation*0.1);
+    }
+
+
+
+    // float maxThing = fmax(fabs(leftSpeed), fabs(rightSpeed));
+    
+    // if(maxThing>1)
+    // {
+    //   leftSpeed /= maxThing;
+    //   rightSpeed /= maxThing;
+    // }
   
     Right_Drive.setVelocity(rightSpeed, percent);
     Left_Drive.setVelocity(leftSpeed, percent);
