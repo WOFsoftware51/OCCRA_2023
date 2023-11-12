@@ -77,8 +77,8 @@ int main() {
     }
     else
     {
-      leftSpeed = xSpeed - (labs(xSpeed) * rotation*0.1);
-      rightSpeed = xSpeed + (labs(xSpeed) * rotation*0.1);
+      leftSpeed = xSpeed - (labs(xSpeed) * rotation*0.075*0.5);
+      rightSpeed = xSpeed + (labs(xSpeed) * rotation*0.075*0.5);
     }
 
 
@@ -107,7 +107,10 @@ int main() {
 
    // }
 
-    Shooter1.setVelocity((shootVal1)*0.65, percent);
+
+    //Grey Wheels
+    Shooter1.setVelocity((shootVal1)*0.7, percent);
+    //Green Wheels
     Shooter2.setVelocity((shootVal2), percent);
 
 
@@ -116,10 +119,6 @@ int main() {
     Shooter1.spin(forward);
     Shooter2.spin(forward);
 
-        // printf("%d\n",Controller1.ButtonL1.pressing());
+     printf("%d\n",Controller1.ButtonL1.pressing());
   } 
-
-
 }
-
-
