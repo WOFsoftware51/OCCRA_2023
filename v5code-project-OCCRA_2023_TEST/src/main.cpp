@@ -108,9 +108,9 @@ int main() {
    // }
 
 
-    //Grey Wheels
+    //Grey Wheels //Shoot Wheels
     Shooter1.setVelocity((shootVal1)*0.7, percent);
-    //Green Wheels
+    //Green Wheels //Intake Wheels
     Shooter2.setVelocity((shootVal2), percent);
 
 
